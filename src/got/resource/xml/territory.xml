@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- Type [0 land | 1 sea]   -->
+<Territories>
+<Territory Name="Castle Black" Mustering="0" Supply="0" Power="1" Port="0" Type="0"/>
+<Territory Name="Winter Fell" Mustering="2" Supply="1" Power="1" Port="0" Type="0"/>
+<Territory Name="Karhold" Mustering="0" Supply="0" Power="1" Port="0" Type="0"/>
+<Territory Name="The Stoney Shore" Mustering="0" Supply="1" Power="0" Port="0" Type="0"/>
+<Territory Name="White Harbor" Mustering="1" Supply="0" Power="0" Port="0" Type="0"/>
+<Territory Name="Window's Watch" Mustering="0" Supply="1" Power="0" Port="0" Type="0"/>
+<Territory Name="Moat Cailin" Mustering="1" Supply="0" Power="0" Port="0" Type="0"/>
+<Territory Name="Greywater Watch" Mustering="0" Supply="1" Power="0" Port="0" Type="0"/>
+<Territory Name="Flint's Finger" Mustering="1" Supply="0" Power="0" Port="0" Type="0"/>
+<Territory Name="Seagard" Mustering="2" Supply="1" Power="1" Port="0" Type="0"/>
+<Territory Name="The Twins" Mustering="0" Supply="0" Power="1" Port="0" Type="0"/>
+<Territory Name="The Fingers" Mustering="0" Supply="1" Power="0" Port="0" Type="0"/>
+<Territory Name="The Mountains of the Moon" Mustering="0" Supply="1" Power="0" Port="0" Type="0"/>
+<Territory Name="The Eyrie" Mustering="1" Supply="1" Power="1" Port="0" Type="0"/>
+<Territory Name="Riverrun" Mustering="2" Supply="1" Power="1" Port="0" Type="0"/>
+<Territory Name="Lannisport" Mustering="2" Supply="2" Power="0" Port="0" Type="0"/>
+<Territory Name="Stoney Sept" Mustering="0" Supply="0" Power="1" Port="0" Type="0"/>
+<Territory Name="Harrenhal" Mustering="1" Supply="0" Power="1" Port="0" Type="0"/>
+<Territory Name="Crackclaw Point" Mustering="1" Supply="0" Power="0" Port="0" Type="0"/>
+<Territory Name="King's Landing" Mustering="2" Supply="0" Power="2" Port="0" Type="0"/>
+<Territory Name="Blackwater" Mustering="0" Supply="2" Power="0" Port="0" Type="0"/>
+<Territory Name="Searoad Marches" Mustering="0" Supply="1" Power="0" Port="0" Type="0"/>
+<Territory Name="Highgarden" Mustering="2" Supply="2" Power="0" Port="0" Type="0"/>
+<Territory Name="The Reach" Mustering="1" Supply="0" Power="0" Port="0" Type="0"/>
+<Territory Name="Kingswood" Mustering="0" Supply="0" Power="1" Port="0" Type="0"/>
+<Territory Name="Storms End" Mustering="1" Supply="0" Power="0" Port="0" Type="0"/>
+<Territory Name="Dornish Marches" Mustering="0" Supply="1" Power="0" Port="0" Type="0"/>
+<Territory Name="Oldtown" Mustering="1" Supply="0" Power="0" Port="0" Type="0"/>
+<Territory Name="Starfall" Mustering="0" Supply="1" Power="0" Port="0" Type="0"/>
+<Territory Name="Yronwood" Mustering="0" Supply="0" Power="1" Port="0" Type="0"/>
+<Territory Name="Salt Shore" Mustering="0" Supply="1" Power="0" Port="0" Type="0"/>
+<Territory Name="Prince's Pass" Mustering="0" Supply="1" Power="1" Port="0" Type="0"/>
+<Territory Name="Three Towers" Mustering="0" Supply="1" Power="0" Port="0" Type="0"/>
+<Territory Name="The Boneway" Mustering="0" Supply="0" Power="1" Port="0" Type="0"/>
+<Territory Name="Sunspear" Mustering="1" Supply="1" Power="1" Port="0" Type="0"/>
+<Territory Name="West Summer Sea" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="East Summer Sea" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="Redwyne Straights" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="Sunset Sea" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="Sea of Dorne" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="Shipbreaker Bay" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="Blackwater Bay" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="The Golden Sound" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="Ironman's Bay" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="The Narrow Sea" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="The Shivering Sea" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="Bay of Ice" Mustering="0" Supply="0" Power="0" Port="0" Type="1"/>
+<Territory Name="Pyke" Mustering="2" Supply="1" Power="1" Port="0" Type="0"/>
+<Territory Name="Dragonstone" Mustering="2" Supply="1" Power="1" Port="0" Type="0"/>
+<Territory Name="The Arbor" Mustering="0" Supply="0" Power="1" Port="0" Type="1"/>
+<Territory Name="WhiteHarborPort" Mustering="0" Supply="0" Power="0" Port="0" Type="2"/>
+<Territory Name="PykePort" Mustering="0" Supply="0" Power="0" Port="0" Type="2"/>
+<Territory Name="StormsEndPort" Mustering="0" Supply="0" Power="0" Port="0" Type="2"/>
+<Territory Name="OldTownPort" Mustering="0" Supply="0" Power="0" Port="0" Type="2"/>
+<Territory Name="LannisPortPort" Mustering="0" Supply="0" Power="0" Port="0" Type="2"/>
+<Territory Name="DragonStonePort" Mustering="0" Supply="0" Power="0" Port="0" Type="2"/>
+<Territory Name="SunsPearPort" Mustering="0" Supply="0" Power="0" Port="0" Type="2"/>
+<Territory Name="WinterFellPort" Mustering="0" Supply="0" Power="0" Port="0" Type="2"/>
+</Territories>

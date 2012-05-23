@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Families>
+	<Family Name="STARK" Iron="3" Blade="3" Raven="3" Color="white">
+		<Territory Name="Winter Fell" Knight="1" FootMan="1" Ship="0" />
+		<Territory Name="The Shivering Sea" Knight="0" FootMan="0" Ship="1" />
+	</Family>
+	<Family Name="LANNISTER" Iron="1" Blade="1" Raven="1" Color="red">
+		<Territory Name="Lannisport" Knight="1" FootMan="1" Ship="0" />
+		<Territory Name="The Golden Sound" Knight="0" FootMan="0" Ship="1" />
+	</Family>
+	<Family Name="BARATHEON" Iron="2" Blade="2" Raven="2" Color="yellow">
+		<Territory Name="Dragonstone" Knight="1" FootMan="1" Ship="0" />
+	</Family>
+	<Family Name="TYREL" Iron="4" Blade="4" Raven="4" Color="green">
+		<Territory Name="Highgarden" Knight="1" FootMan="1" Ship="0" />
+	</Family>
+	<Family Name="GREYJOY" Iron="5" Blade="5" Raven="5" Color="black">
+		<Territory Name="Pyke" Knight="1" FootMan="1" Ship="0" />
+		<Territory Name="Ironman's Bay" Knight="0" FootMan="0" Ship="2" />
+	</Family>
+</Families>

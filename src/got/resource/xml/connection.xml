@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Connections>
+	<Connection t1="Castle Black" t2="Winter Fell" />
+	<Connection t1="Castle Black" t2="Bay of Ice" />
+	<Connection t1="Castle Black" t2="The Shivering Sea" />
+	<Connection t1="Castle Black" t2="Karhold" />
+	<Connection t1="Karhold" t2="The Shivering Sea" />
+	<Connection t1="Karhold" t2="Winter Fell" />
+	<Connection t1="Winter Fell" t2="The Shivering Sea" />
+	<Connection t1="White Harbor" t2="The Shivering Sea" />
+	<Connection t1="Window's Watch" t2="The Shivering Sea" />
+	<Connection t1="Window's Watch" t2="White Harbor" />
+	<Connection t1="White Harbor" t2="Winter Fell" />
+	<Connection t1="Bay of Ice" t2="Winter Fell" />
+	<Connection t1="Winter Fell" t2="The Stoney Shore" />
+	<Connection t1="Bay of Ice" t2="The Stoney Shore" />
+	<Connection t1="The Shivering Sea" t2="The Narrow Sea" />
+	<Connection t1="Window's Watch" t2="The Narrow Sea" />
+	<Connection t1="White Harbor" t2="The Narrow Sea" />
+	<Connection t1="White Harbor" t2="Moat Cailin" />
+	<Connection t1="Winter Fell" t2="Moat Cailin" />
+	<Connection t1="Moat Cailin" t2="The Narrow Sea" />
+	<Connection t1="Moat Cailin" t2="Greywater Watch" />
+	<Connection t1="Greywater Watch" t2="Flint's Finger" />
+	<Connection t1="Greywater Watch" t2="Bay of Ice" />
+	<Connection t1="Bay of Ice" t2="Flint's Finger" />
+	<Connection t1="Bay of Ice" t2="Sunset Sea" />
+	<Connection t1="Sunset Sea" t2="Flint's Finger" />
+	<Connection t1="Moat Cailin" t2="The Twins" />
+	<Connection t1="Greywater Watch" t2="Seagard" />
+	<Connection t1="Moat Cailin" t2="Seagard" />
+	<Connection t1="The Twins" t2="The Fingers" />
+	<Connection t1="The Fingers" t2="The Narrow Sea" />
+	<Connection t1="The Twins" t2="The Mountains of the Moon" />
+	<Connection t1="The Fingers" t2="The Mountains of the Moon" />
+	<Connection t1="The Mountains of the Moon" t2="The Narrow Sea" />
+	<Connection t1="The Mountains of the Moon" t2="The Eyrie" />
+	<Connection t1="The Eyrie" t2="The Narrow Sea" />
+	<Connection t1="Seagard" t2="The Twins" />
+	<Connection t1="Seagard" t2="Riverrun" />
+	<Connection t1="Riverrun" t2="Harrenhal" />
+	<Connection t1="Riverrun" t2="Stoney Sept" />
+	<Connection t1="Riverrun" t2="Lannisport" />
+	<Connection t1="Crackclaw Point" t2="The Mountains of the Moon" />
+	<Connection t1="Harrenhal" t2="Crackclaw Point" />
+	<Connection t1="Crackclaw Point" t2="The Narrow Sea" />
+	<Connection t1="Crackclaw Point" t2="Blackwater Bay" />
+	<Connection t1="Blackwater Bay" t2="King's Landing" />
+	<Connection t1="Crackclaw Point" t2="King's Landing" />
+	<Connection t1="Crackclaw Point" t2="Blackwater" />
+	<Connection t1="Harrenhal" t2="Blackwater" />
+	<Connection t1="Stoney Sept" t2="Blackwater" />
+	<Connection t1="Stoney Sept" t2="Lannisport" />
+	<Connection t1="Lannisport" t2="Searoad Marches" />
+	<Connection t1="Searoad Marches" t2="Stoney Sept" />
+	<Connection t1="Searoad Marches" t2="Blackwater" />
+	<Connection t1="Searoad Marches" t2="Highgarden" />
+	<Connection t1="Blackwater" t2="The Reach" />
+	<Connection t1="Highgarden" t2="The Reach" />
+	<Connection t1="The Reach" t2="Searoad Marches" />
+	<Connection t1="King's Landing" t2="The Reach" />
+	<Connection t1="King's Landing" t2="Kingswood" />
+	<Connection t1="Blackwater Bay" t2="Kingswood" />
+	<Connection t1="The Reach" t2="Kingswood" />
+	<Connection t1="Highgarden" t2="Dornish Marches" />
+	<Connection t1="The Reach" t2="Dornish Marches" />
+	<Connection t1="The Reach" t2="The Boneway" />
+	<Connection t1="Kingswood" t2="Storms End" />
+	<Connection t1="Storms End" t2="The Boneway" />
+	<Connection t1="The Boneway" t2="Dornish Marches" />
+	<Connection t1="Highgarden" t2="Oldtown" />
+	<Connection t1="Oldtown" t2="Dornish Marches" />
+	<Connection t1="Dornish Marches" t2="Three Towers" />
+	<Connection t1="Three Towers" t2="Oldtown" />
+	<Connection t1="Dornish Marches" t2="Prince's Pass" />
+	<Connection t1="Prince's Pass" t2="The Boneway" />
+	<Connection t1="Prince's Pass" t2="Starfall" />
+	<Connection t1="Starfall" t2="Yronwood" />
+	<Connection t1="Yronwood" t2="The Boneway" />
+	<Connection t1="The Boneway" t2="Sea of Dorne" />
+	<Connection t1="Sea of Dorne" t2="Yronwood" />
+	<Connection t1="Sea of Dorne" t2="Storms End" />
+	<Connection t1="Sea of Dorne" t2="Sunspear" />
+	<Connection t1="Sunspear" t2="Salt Shore" />
+	<Connection t1="Salt Shore" t2="Starfall" />
+	<Connection t1="Yronwood" t2="Salt Shore" />
+	<Connection t1="Yronwood" t2="Sunspear" />
+	<Connection t1="Sea of Dorne" t2="East Summer Sea" />
+	<Connection t1="Sunspear" t2="East Summer Sea" />
+	<Connection t1="Salt Shore" t2="East Summer Sea" />
+	<Connection t1="Starfall" t2="East Summer Sea" />
+	<Connection t1="Three Towers" t2="West Summer Sea" />
+	<Connection t1="West Summer Sea" t2="East Summer Sea" />
+	<Connection t1="Starfall" t2="West Summer Sea" />
+	<Connection t1="West Summer Sea" t2="The Arbor" />
+	<Connection t1="The Arbor" t2="West Summer Sea" />
+	<Connection t1="Redwyne Straights" t2="West Summer Sea" />
+	<Connection t1="The Arbor" t2="Redwyne Straights" />
+	<Connection t1="Oldtown" t2="Redwyne Straights" />
+	<Connection t1="Redwyne Straights" t2="Three Towers" />
+	<Connection t1="Highgarden" t2="Redwyne Straights" />
+	<Connection t1="Highgarden" t2="West Summer Sea" />
+	<Connection t1="Searoad Marches" t2="West Summer Sea" />
+	<Connection t1="Searoad Marches" t2="West Summer Sea" />
+	<Connection t1="Sunset Sea" t2="West Summer Sea" />
+	<Connection t1="Searoad Marches" t2="Sunset Sea" />
+	<Connection t1="Stoney Sept" t2="Harrenhal" />
+	<Connection t1="Shipbreaker Bay" t2="The Narrow Sea"/>
+	<Connection t1="Shipbreaker Bay" t2="Blackwater Bay"/>
+	<Connection t1="Shipbreaker Bay" t2="Dragonstone"/>
+	<Connection t1="Shipbreaker Bay" t2="Crackclaw Point"/>
+	<Connection t1="Shipbreaker Bay" t2="Kingswood"/>
+	<Connection t1="Shipbreaker Bay" t2="Storms End"/>
+	<Connection t1="Shipbreaker Bay" t2="East Summer Sea"/>
+	<Connection t1="The Golden Sound" t2="Ironman's Bay"/> 
+	<Connection t1="The Golden Sound" t2="Sunset Sea"/> 
+	<Connection t1="The Golden Sound" t2="Lannisport"/> 
+	<Connection t1="The Golden Sound" t2="Riverrun"/> 
+	<Connection t1="The Golden Sound" t2="Searoad Marches"/> 
+	<Connection t1="Ironman's Bay" t2="Flint's Finger"/>
+	<Connection t1="Ironman's Bay" t2="Greywater Watch"/>
+	<Connection t1="Ironman's Bay" t2="Seagard"/>
+	<Connection t1="Ironman's Bay" t2="Riverrun"/>
+	<Connection t1="Ironman's Bay" t2="Sunset Sea"/>
+	<Connection t1="Ironman's Bay" t2="Pyke"/>
+</Connections>

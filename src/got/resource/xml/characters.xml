@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Characters>
+<Character Name="Eddard Stark" FamilyName="STARK" Power="3" Sword="0" Shield="2" Special=""/>
+<Character Name="Robb Stark" FamilyName="STARK" Power="2" Sword="0" Shield="0" Special="Attacking Knights in your army add +3 to your combat strength instead of +2."/>
+<Character Name="Greatjon Umber" FamilyName="STARK" Power="2" Sword="1" Shield="0" Special=""/>
+<Character Name="Sir Rodrick Cassel" FamilyName="STARK" Power="1" Sword="0" Shield="1" Special=""/>
+<Character Name="House Mormont Lord" FamilyName="STARK" Power="1" Sword="1" Shield="0" Special=""/>
+<Character Name="Master Luwin" FamilyName="STARK" Power="0" Sword="0" Shield="0" Special="If you win this battle, you may return one of your discarded house cards to your hand."/>
+<Character Name="Catelyn Stark" FamilyName="STARK" Power="0" Sword="0" Shield="0" Special="Your Defence order bonus is doubled this battle.(+1 defense to +2, +2 defense to +4)"/>
+
+<Character Name="Tywin Lannister" FamilyName="LANNISTER" Power="3" Sword="2" Shield="0" Special=""/>
+<Character Name="Sir Jamie Lannister" FamilyName="LANNISTER" Power="2" Sword="0" Shield="0" Special="If you win this battle, immediately gain two power tokens."/>
+<Character Name="Tyrion Lannister" FamilyName="LANNISTER" Power="2" Sword="0" Shield="1" Special=""/>
+<Character Name="Kevan Lannister" FamilyName="LANNISTER" Power="1" Sword="1" Shield="0" Special=""/>
+<Character Name="House Lannister Captain" FamilyName="LANNISTER" Power="1" Sword="1" Shield="0" Special=""/>
+<Character Name="Vargo Hoat" FamilyName="LANNISTER" Power="0" Sword="0" Shield="0" Special="Attacking Footman in your army count +2 to your combat strength instead of +1."/>
+<Character Name="Cersei Lannister" FamilyName="LANNISTER" Power="0" Sword="0" Shield="0" Special="If you win this battle, remove any one of the losing opponents Order tokens from the board."/>
+
+<Character Name="Mace Tyrell" FamilyName="TYREL" Power="3" Sword="2" Shield="0" Special=""/>
+<Character Name="Ser Loras Tyrell" FamilyName="TYREL" Power="2" Sword="0" Shield="0" Special="Immediately kill one of your opponent’s attacking or defending Footman units. If your opponent don't have other units, win the battle immediately"/>
+<Character Name="Ser Garlan Tyrell" FamilyName="TYREL" Power="2" Sword="1" Shield="0" Special=""/>
+<Character Name="Margaery Tyrell" FamilyName="TYREL" Power="1" Sword="0" Shield="1" Special=""/>
+<Character Name="House Tyrell Captain" FamilyName="TYREL" Power="1" Sword="1" Shield="0" Special=""/>
+<Character Name="Queen of Thorns" FamilyName="TYREL" Power="0" Sword="0" Shield="0" Special="Cancel the special ability of your opponents House Card."/>
+<Character Name="Brienne of Tarth" FamilyName="TYREL" Power="0" Sword="0" Shield="0" Special="Immediately discard your opponent’s Defence order in the area of battle."/>
+
+<Character Name="Stannis Baratheon" FamilyName="BARATHEON" Power="3" Sword="1" Shield="1" Special=""/>
+<Character Name="Renly Baratheon" FamilyName="BARATHEON" Power="2" Sword="0" Shield="0" Special="If you win this battle, you may upgrade one of your Footman to a Knight."/>
+<Character Name="Ser Davos Seaworth" FamilyName="BARATHEON" Power="2" Sword="0" Shield="1" Special=""/>
+<Character Name="Ser Axell Florent" FamilyName="BARATHEON" Power="1" Sword="1" Shield="0" Special=""/>
+<Character Name="House Florent Lord" FamilyName="BARATHEON" Power="1" Sword="1" Shield="0" Special=""/>
+<Character Name="Melisandre of Asshai" FamilyName="BARATHEON" Power="0" Sword="0" Shield="0" Special="If you win the battle, you may expend one power token to choose and discard one House Card from the losing Players hand."/>
+<Character Name="Salladhor Saan" FamilyName="BARATHEON" Power="0" Sword="0" Shield="0" Special="The combat strength of any opposed supporting ships is reduced to zero."/>
+
+
+<Character Name="Euron Crow’s Eye" FamilyName="GREYJOY" Power="3" Sword="2" Shield="0" Special=""/>
+<Character Name="Theon Greyjoy" FamilyName="GREYJOY" Power="2" Sword="1" Shield="0" Special=""/>
+<Character Name="Asha Greyjoy" FamilyName="GREYJOY" Power="2" Sword="0" Shield="0" Special="If you win this battle, you may immediately remove a Support or Consolidate Power order in any Sea or Land area adjacent to the battle."/>
+<Character Name="House Blackhyde Captain" FamilyName="GREYJOY" Power="1" Sword="0" Shield="1" Special=""/>
+<Character Name="Aeron Damphair" FamilyName="GREYJOY" Power="1" Sword="1" Shield="0" Special="1"/>
+<Character Name="Balon Greyjoy" FamilyName="GREYJOY" Power="0" Sword="0" Shield="0" Special="The combat strength of your opponents Leader is 0."/>
+<Character Name="Victarion Greyjoy" FamilyName="GREYJOY" Power="0" Sword="0" Shield="0" Special="Attacking ships in your army may add +2 to your combat strength instead of +1."/>
+
+</Characters>
