@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -240,7 +241,8 @@ public class GameInfo {
     public void readTerritoriesXML() throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(new File("src/got/resource/xml/territory.xml"));
+        Document doc;
+        doc = dBuilder.parse(getClass().getResourceAsStream("/got/resource/xml/territory.xml"));
         doc.getDocumentElement().normalize();
         NodeList nList = doc.getElementsByTagName("Territory");
         for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -269,7 +271,7 @@ public class GameInfo {
     public void readFamiliesXML() throws Exception {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(new File("src/got/resource/xml/family.xml"));
+        Document doc = dBuilder.parse(getClass().getResourceAsStream("/got/resource/xml/family.xml"));
         doc.getDocumentElement().normalize();
         NodeList nList = doc.getElementsByTagName("Family");
         for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -312,7 +314,7 @@ public class GameInfo {
     public void readCharactersXML() throws Exception {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(new File("src/got/resource/xml/characters.xml"));
+        Document doc = dBuilder.parse(getClass().getResourceAsStream("/got/resource/xml/characters.xml"));
         doc.getDocumentElement().normalize();
         NodeList nList = doc.getElementsByTagName("Character");
         for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -337,8 +339,8 @@ public class GameInfo {
     }
 
     public void readTerritoryPolyTxt() throws FileNotFoundException, IOException {
-        Map<String, List<Polygon>> polys = PointFileReaderWriter.readOneToManyPolygons(new FileInputStream(
-                "src/got/resource/txt/polygons.txt"));
+        Map<String, List<Polygon>> polys = PointFileReaderWriter.readOneToManyPolygons(getClass().getResourceAsStream(
+                "/got/resource/txt/polygons.txt"));
         for (String name : polys.keySet()) {
             for (TerritoryInfo ti : getTerrMap().values()) {
                 if (ti.getName().equals(name.trim())) {
@@ -350,8 +352,8 @@ public class GameInfo {
     }
 
     public void readPlacementTxt() throws FileNotFoundException, IOException {
-        Map<String, List<Point>> places = PointFileReaderWriter.readOneToMany(new FileInputStream(
-                "src/got/resource/txt/place.txt"));
+        Map<String, List<Point>> places = PointFileReaderWriter.readOneToMany(getClass().getResourceAsStream(
+                "/got/resource/txt/place.txt"));
         // first 4 placements are for army, the last one is for order action
         for (String name : places.keySet()) {
             List<Point> points = places.get(name);
@@ -362,14 +364,13 @@ public class GameInfo {
     }
 
     public void readSupplyPlacementTxt() throws FileNotFoundException, IOException {
-        setSupplyPoints(PointFileReaderWriter
-                .readOneToMany(new FileInputStream("src/got/resource/txt/supply_place.txt")));
+        setSupplyPoints(PointFileReaderWriter.readOneToMany(getClass().getResourceAsStream("/got/resource/txt/supply_place.txt")));
     }
 
     public void readConnectionsXML() throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(new File("src/got/resource/xml/connection.xml"));
+        Document doc = dBuilder.parse(getClass().getResourceAsStream("/got/resource/xml/connection.xml"));
         doc.getDocumentElement().normalize();
         NodeList nList = doc.getElementsByTagName("Connection");
         for (int temp = 0; temp < nList.getLength(); temp++) {

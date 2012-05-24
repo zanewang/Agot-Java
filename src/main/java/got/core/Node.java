@@ -14,8 +14,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import javax.swing.JFrame;
-
 import org.jgroups.Address;
 import org.jgroups.JChannel;
 import org.jgroups.Message;

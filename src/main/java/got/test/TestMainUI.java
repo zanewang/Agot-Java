@@ -1,7 +1,6 @@
 package got.test;
 
 import got.ui.InfoStatusDialog;
-import got.ui.Invoker;
 import got.utility.Utility;
 
 import java.awt.Dimension;

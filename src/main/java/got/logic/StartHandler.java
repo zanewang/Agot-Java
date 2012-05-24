@@ -48,16 +48,16 @@ public class StartHandler extends EventManager {
             if (round != 1) {
                 westerosEvent();
             }
-            // orderEvent();
-            // ravenEvent();
-            // raidEvent();
+             orderEvent();
+             ravenEvent();
+             raidEvent();
             if (TestCase.BATTLE_TEST) {
                 TestInject.battleInject(node);
                 syncGameStatus();
                 battleEvent();
             }
-            // marchEvent();
-            // powerEvent();
+            marchEvent();
+            powerEvent();
             round++;
         }
 
