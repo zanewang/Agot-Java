@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="A game of thrones Java" default="jar" basedir=".">
+
+    <!-- IMPORTANT VARIABLE HERE -->
+    <property name="project.name" value="agot"/>
+    <property name="src" value="src" />
+    <property name="src.main" value="${src}/main"/>
+    <property name="main.java" value="${src.main}/java" />
+    <property name="lib.dir" value="lib" />
+    <property name="build.dir" value="build"/>
+    <property name="main.classes" value="${build.dir}/classes" />
+    <property name="main.dist" value="dist"/>
+
+    <path id="class.path">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="init">
+        <tstamp/>
+    </target>
+
+    <!-- CLEAN TARGET -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${main.dist}"/>
+    </target>
+
+    <!-- COMPILE TARGET -->
+    <target name="compile" depends="init">
+        <mkdir dir="${main.classes}"/>
+        <javac destdir="${main.classes}" source="1.6" debug="true">
+            <src path="${main.java}"/>
+            <classpath refid="class.path"/>
+        </javac>
+        <copy todir="${main.classes}">
+            <fileset dir="${main.java}">
+                <include name="**/*.properties"/>
+                <include name="**/*.txt"/>
+                <include name="**/*.xml"/>
+                <include name="**/*.png"/>
+            </fileset>
+        </copy>
+    </target>
+
+
+    <!-- MAKE JAR TARGET -->
+    <target name="jar" depends="compile">
+        <mkdir dir="${main.dist}/lib"/>
+        <jar destfile="${main.dist}/${project.name}.3rd.jar" filesetmanifest="mergewithoutmain">
+             <zipgroupfileset dir="${lib.dir}"/>
+        </jar>
+        <jar 
+             jarfile="${main.dist}/${project.name}.jar"
+             includes="**/*.*"
+        >
+        <fileset dir="${main.classes}" />
+        <manifest>
+              <attribute name="Main-Class" value="got.ui.Main"/>
+              <attribute name="Class-Path" value="${mf.classpath} "/>
+        </manifest>
+        <zipfileset excludes="META-INF/*.SF" src="${main.dist}/${project.name}.3rd.jar" />
+        </jar>
+    </target>
+
+    
+</project>
