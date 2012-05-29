@@ -39,7 +39,9 @@ public class StartHandler extends EventManager {
             return;
         }
         for (Address addr : node.getServerGameInfo().getAddrMap().keySet()) {
-            node.sendInfo("Random assign the family " + node.getServerGameInfo().getAddrMap().get(addr).getName(), addr);
+            node
+                    .sendInfo("Random assign the family " + node.getServerGameInfo().getAddrMap().get(addr).getName(),
+                            addr);
         }
         countdownN = serverGameInfo.getPlayerNum();
         int round = 1;
@@ -48,9 +50,10 @@ public class StartHandler extends EventManager {
             if (round != 1) {
                 westerosEvent();
             }
-             orderEvent();
-             ravenEvent();
-             raidEvent();
+            musterEvent();
+            orderEvent();
+//            ravenEvent();
+//            raidEvent();
             if (TestCase.BATTLE_TEST) {
                 TestInject.battleInject(node);
                 syncGameStatus();
@@ -222,10 +225,8 @@ public class StartHandler extends EventManager {
         logger.debug("Server: Send the Muster message to all");
         List<FamilyInfo> ironFamilies = serverGameInfo.getFamiliesIronRanking();
         for (FamilyInfo fi : ironFamilies) {
-            CountDownLatch musterCDL = new CountDownLatch(1);
-            serverGameInfo.getCdl().put(MessageType.Mustering, musterCDL);
-            node.send(MessageType.Mustering, fi.getAddress());
-            musterCDL.await();
+            node.sendInfo("Turn to " + fi.getName() + " mustering the army");
+            event(MessageType.Mustering, fi.getAddress());
             syncGameStatus();
         }
     }
@@ -299,7 +300,9 @@ public class StartHandler extends EventManager {
     private void ravenEvent() throws Exception {
         FamilyInfo ravenTopFamilyInfo = serverGameInfo.getFamiliesRavenRanking().get(0);
         logger.debug("Server: The Raven 1st is " + ravenTopFamilyInfo.getName());
+        node.sendInfo("The Raven 1st family " + ravenTopFamilyInfo.getName() + " could replace 1 command");
         event(MessageType.Raven, ravenTopFamilyInfo.getAddress());
+        node.sendInfo("The Raven 1st family " + ravenTopFamilyInfo.getName() + " finish the replacement");
     }
 
     private void raidEvent() throws Exception {
@@ -325,6 +328,7 @@ public class StartHandler extends EventManager {
                     logger.debug("Server: Has no march command for family " + fi.getName());
                     continue;
                 }
+                node.sendInfo("Turn for " + fi.getName() + " march his army");
                 event(MessageType.March, fi.getAddress());
                 battleEvent();
             }
@@ -349,31 +353,36 @@ public class StartHandler extends EventManager {
 
             if (defenseFamilyName.equals(TerritoryInfo.NEUTRAL_FAMILY)) {
                 logger.debug("Server: " + attackFamilyName + " attack the NEUTRAL territory");
-                battleNeutral(battleTerritory.getName(),  attackFamilyName);
+                node.sendInfo("Family " + attackFamilyName + " attack the NEUTRAL territory "
+                        + battleTerritory.getName());
+                battleNeutral(battleTerritory.getName(), attackFamilyName);
                 return;
             } else {
                 logger.debug("Sever: " + attackFamilyName + " attack the " + defenseFamilyName);
+
+                node.sendInfo(attackFamilyName + " attack " + defenseFamilyName + " at territory "
+                        + battleTerritory.getName());
                 battlePlayer(battleTerritory.getName(), defenseFamilyName, attackFamilyName);
             }
         }
     }
 
-    private void battleNeutral(String battleTerrName, String attackFamilyName) {
+    private void battleNeutral(String battleTerrName, String attackFamilyName) throws Exception {
         // TODO Auto-generated method stub
         // fix me the support
         TerritoryInfo ti = serverGameInfo.getTerrMap().get(battleTerrName);
         int defenseFamilyCapabilities = ti.getConquerCapabilities();
         int attackFamilyCapabilities = ti.getAttackCapabilities() + ti.getAttackRate() + ti.getAttackSeaSupport()
                 + ti.getAttackLandSupport();
-        if(attackFamilyCapabilities >= defenseFamilyCapabilities){
+        if (attackFamilyCapabilities >= defenseFamilyCapabilities) {
             ti.resetAfterAttack(true);
             serverGameInfo.getFamiliesMap().get(attackFamilyName).getConquerTerritories().add(ti.getName());
-        }
-        else{
+        } else {
             TerritoryInfo attackTerritory = serverGameInfo.getTerrMap().get(ti.getAttackTerritoryName());
             attackTerritory.setRetreatArms(ti.getAttackArms());
             ti.resetAfterAttack(false);
         }
+        syncGameStatus();
     }
 
     private void battlePlayer(String battleTerrName, String defenseFamilyName, String attackFamilyName)
@@ -386,6 +395,8 @@ public class StartHandler extends EventManager {
         for (String supportTerrName : supportTerrNames) {
             logger.debug("Server: " + supportTerrName + " could give support");
             TerritoryInfo supportTerritory = serverGameInfo.getTerrMap().get(supportTerrName);
+            node.sendInfo("Wait for the decision " + supportTerritory.getConquerFamilyName() + "'s territory "
+                    + supportTerrName + " would support any battle force");
             serverGameInfo.setLastSelect(supportTerrName);
             FamilyInfo supportFamily = serverGameInfo.getFamiliesMap().get(supportTerritory.getConquerFamilyName());
             event(MessageType.Support, supportFamily.getAddress());
@@ -418,8 +429,11 @@ public class StartHandler extends EventManager {
         logger.debug("Server: Attack Character " + attackFamily.getBattleCharacter());
         CharacterInfo defenseCharacter = serverGameInfo.getCharacterMap().get(defenseFamily.getBattleCharacter());
         CharacterInfo attackCharacter = serverGameInfo.getCharacterMap().get(attackFamily.getBattleCharacter());
+        syncGameStatus();
         logger.debug("Server: Defense Character " + defenseCharacter.getName());
         logger.debug("Server: Attack Character " + attackCharacter.getName());
+        node.sendInfo(String.format("Defense Character %s power %d sword %d shield %d",defenseCharacter.getName(),defenseCharacter.getPower(),defenseCharacter.getSword(),defenseCharacter.getShield()));
+        node.sendInfo(String.format("Attack Character %s power %d sword %d shield %d",attackCharacter.getName(),attackCharacter.getPower(),attackCharacter.getSword(),attackCharacter.getShield()));
         characterCastBeforeBattle(battleTerrName, defenseFamilyName, attackFamilyName);
         TerritoryInfo ti = serverGameInfo.getTerrMap().get(battleTerrName);
         int defenseFamilyCapabilities = defenseCharacter.getPower() + ti.getConquerCapabilities() + ti.getConquerRate()
@@ -478,7 +492,7 @@ public class StartHandler extends EventManager {
         syncGameStatus();
     }
 
-    private void characterCastBeforeBattle(String terrName, String defenseFamilyName, String attackFamilyName) {
+    private void characterCastBeforeBattle(String terrName, String defenseFamilyName, String attackFamilyName) throws Exception {
         FamilyInfo defenseFamily = serverGameInfo.getFamiliesMap().get(defenseFamilyName);
         FamilyInfo attackFamily = serverGameInfo.getFamiliesMap().get(attackFamilyName);
         CharacterInfo defenseCharacter = serverGameInfo.getCharacterMap().get(defenseFamily.getBattleCharacter());
@@ -490,32 +504,37 @@ public class StartHandler extends EventManager {
             // all specify ability is disable
             // Queen of Thorns,Cancel the special ability of your opponents
             // House Card.
+            node.sendInfo(attackCharacter.getName() + " : " + attackCharacter.getSpecial());
             return;
         }
         if (attackFamily.getBattleCharacter().equals("Robb Stark")) {
             // Attacking Knights in your army add +3 to your combat strength
             // instead of +2.
             ti.setAttackRate(ti.getAttackRate() + ti.getAttackArms().get(Arm.KNIGHT));
+            node.sendInfo(attackCharacter.getName() + " : " + attackCharacter.getSpecial());
         } else if (attackFamily.getBattleCharacter().equals("Ser Loras Tyrell")) {
             // Immediately kill one of your opponent’s attacking or defending
             // Footman units. If your opponent don't have other units, win the
             // battle immediately
             if (ti.getConquerArms().get(Arm.FOOTMAN) > 0) {
+                node.sendInfo(attackCharacter.getName() + " : " + attackCharacter.getSpecial());
                 ti.getConquerArms().put(Arm.FOOTMAN, ti.getConquerArms().get(Arm.FOOTMAN) - 1);
             }
         } else if (attackFamily.getBattleCharacter().equals("Vargo Hoat")) {
             // Attacking Footman in your army count +2 to your combat strength
             // instead of +1.
             ti.setAttackRate(ti.getAttackRate() + ti.getAttackArms().get(Arm.FOOTMAN));
+            node.sendInfo(attackCharacter.getName() + " : " + attackCharacter.getSpecial());
         } else if (attackFamily.getBattleCharacter().equals("Victarion Greyjoy")) {
             // Attacking ships in your army may add +2 to your combat strength
             // instead of +1.
-            ti.setAttackRate(ti.getAttackRate() + ti.getAttackArms().get(Arm.SHIP));
+            node.sendInfo(attackCharacter.getName() + " : " + attackCharacter.getSpecial());
         } else if (attackFamily.getBattleCharacter().equals("Brienne of Tarth")) {
             // Immediately discard your opponent’s Defence order in the area of
             // battle.
             if (ti.getAction().getType().equals(ActionType.DEFENSE)) {
                 ti.setAction(Action.NONE);
+                node.sendInfo(attackCharacter.getName() + " : " + attackCharacter.getSpecial());
                 if (ti.getAction().isStar()) {
                     ti.setConquerRate(ti.getConquerRate() - 2);
                 } else {
@@ -526,9 +545,11 @@ public class StartHandler extends EventManager {
             // The combat strength of any opposed supporting ships is reduced to
             // zero.
             ti.setConquerSeaSupport(0);
+            node.sendInfo(attackCharacter.getName() + " : " + attackCharacter.getSpecial());
         } else if (attackFamily.getBattleCharacter().equals("Balon Greyjoy")) {
             // The combat strength of your opponents Leader is 0.
             ti.setAttackRate(ti.getAttackRate() + defenseCharacter.getPower());
+            node.sendInfo(attackCharacter.getName() + " : " + attackCharacter.getSpecial());
         }
 
         // defense side
@@ -537,17 +558,21 @@ public class StartHandler extends EventManager {
             // Footman units. If your opponent don't have other units, win the
             // battle immediately
             if (ti.getAttackArms().get(Arm.FOOTMAN) > 0) {
+                node.sendInfo(defenseCharacter.getName() + " : " + defenseCharacter.getSpecial());
                 ti.getAttackArms().put(Arm.FOOTMAN, ti.getAttackArms().get(Arm.FOOTMAN) - 1);
             }
         } else if (defenseFamily.getBattleCharacter().equals("Salladhor Saan")) {
             // The combat strength of any opposed supporting ships is reduced to
             // zero.
             ti.setAttackSeaSupport(0);
+            node.sendInfo(defenseCharacter.getName() + " : " + defenseCharacter.getSpecial());
         } else if (defenseFamily.getBattleCharacter().equals("Balon Greyjoy")) {
             // The combat strength of your opponents Leader is 0.
             ti.setConquerRate(ti.getConquerRate() + attackCharacter.getPower());
+            node.sendInfo(defenseCharacter.getName() + " : " + defenseCharacter.getSpecial());
         } else if (defenseFamily.getBattleCharacter().equals("Catelyn Stark")) {
             if (ti.getAction().getType().equals(ActionType.DEFENSE)) {
+                node.sendInfo(defenseCharacter.getName() + " : " + defenseCharacter.getSpecial());
                 if (ti.getAction().isStar()) {
                     ti.setConquerRate(ti.getConquerRate() + 2);
                 } else {
@@ -559,8 +584,12 @@ public class StartHandler extends EventManager {
 
     private void characterCastAfterBattleWin(TerritoryInfo ti, String winFamilyName, String loseFamilyName)
             throws Exception {
+        GameInfoHelper.dumpGameStatus(gameInfo);
         FamilyInfo winFamily = serverGameInfo.getFamiliesMap().get(winFamilyName);
         FamilyInfo loseFamily = serverGameInfo.getFamiliesMap().get(loseFamilyName);
+        
+        CharacterInfo character = serverGameInfo.getCharacterMap().get(winFamily.getBattleCharacter());
+        
         if (winFamily.getBattleCharacter().equals("Queen of Thorns")
                 || loseFamily.getBattleCharacter().equals("Queen of Thorns")) {
             // all specify ability is disable
@@ -572,25 +601,31 @@ public class StartHandler extends EventManager {
             // If you win this battle, you may return one of your discarded
             // house cards to your hand.
             event(MessageType.LuWin_Special, winFamily.getAddress());
+            node.sendInfo(character.getName() + " : " + character.getSpecial());
         } else if (winFamily.getBattleCharacter().equals("Sir Jamie Lannister")) {
             // If you win this battle, immediately gain two power tokens.
             winFamily.setCurPower(winFamily.getCurPower() + 2);
+            node.sendInfo(character.getName() + " : " + character.getSpecial());
         } else if (winFamily.getBattleCharacter().equals("Cersei Lannister")) {
             // If you win this battle, remove any one of the losing opponents
             // Order tokens from the board.
             event(MessageType.Cersei_Special, winFamily.getAddress());
+            node.sendInfo(character.getName() + " : " + character.getSpecial());
         } else if (winFamily.getBattleCharacter().equals("Renly Baratheon")) {
             // upgrade footman
             event(MessageType.Renly_Special, winFamily.getAddress());
+            node.sendInfo(character.getName() + " : " + character.getSpecial());
         } else if (winFamily.getBattleCharacter().equals("Melisandre of Asshai")) {
             // If you win the battle, you may expend one power token to choose
             // and discard one House Card from the losing Players hand.
             event(MessageType.Melisandre_Special, winFamily.getAddress());
+            node.sendInfo(character.getName() + " : " + character.getSpecial());
         } else if (winFamily.getBattleCharacter().equals("Asha Greyjoy")) {
             // If you win this battle, you may immediately remove a Support or
             // Consolidate Power order in any Sea or Land area adjacent to the
             // battle.
             event(MessageType.Asha_Special, winFamily.getAddress());
+            node.sendInfo(character.getName() + " : " + character.getSpecial());
         }
 
     }

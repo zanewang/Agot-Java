@@ -1,5 +1,7 @@
 package got.ui;
 
+import got.core.Node;
+
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
@@ -22,14 +24,15 @@ public class InfoStatusDialog extends JDialog {
     private String info;
 
     private int dialogWidth = 860;
-    private int dialogHeight = 40;
+    private int dialogHeight = 35;
 
-    public InfoStatusDialog(JFrame frame, String info) {
-        super(frame);
+    public InfoStatusDialog(final Node node, String info) {
+        super(node.gameFrame);
         this.info = info;
 
         Timer timer = new Timer(10000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                node.gameFrame.removeAndUpdate(InfoStatusDialog.this);
                 InfoStatusDialog.this.dispose();
             }
         });
@@ -40,10 +43,10 @@ public class InfoStatusDialog extends JDialog {
         layoutCoponents();
         this.repaint();
         this.setSize(dialogWidth, dialogHeight);
-        this.setLocation((int)frame.getLocation().getX()+50, (int)frame.getLocation().getY()+50);
+//        this.setLocation((int)frame.getLocation().getX()+50, (int)frame.getLocation().getY()+50);
         this.setUndecorated(true);
         this.setFocusableWindowState(false);
-        this.setVisible(true);
+//        this.setVisible(true);
       
         
     }
@@ -55,7 +58,7 @@ public class InfoStatusDialog extends JDialog {
         infoPane.setText(info);
         infoPane.setFont(new Font("Arial Black", Font.ITALIC, 13));
 
-        infoPane.setLocation(130, 10);
+        infoPane.setLocation(130, 3);
         infoPane.setSize(700, 20);
 
         infoPane.setOpaque(false);

@@ -115,11 +115,11 @@ public class ConnectionCreate extends JFrame {
         System.out.println("Select the map");
         // final String mapName = new
         // FileOpen("Select The Map").getPathString();
-        final String mapName = "/home/zane/Desktop/agot.png";
+        final String mapName = "/home/zane/workspace/Agot-Java/src/main/java/got/resource/agot.png";
         if (mapName != null) {
             System.out.println("Map : " + mapName);
             final ConnectionCreate picker = new ConnectionCreate(mapName);
-            picker.setSize(600, 550);
+            picker.setSize(1024, 768);
             picker.setVisible(true);
         } else {
             System.out.println("No Image Map Selected. Shutting down.");
@@ -139,7 +139,7 @@ public class ConnectionCreate extends JFrame {
     public ConnectionCreate(final String mapName) {
         super("Center Picker");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        final File file = new File(new File(mapName).getParent() + File.pathSeparator + "polygons.txt");
+        final File file = new File("/home/zane/workspace/Agot-Java/src/main/java/got/txt/polygons.txt");
         if (file.exists()
                 && JOptionPane
                         .showConfirmDialog(

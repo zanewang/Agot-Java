@@ -73,7 +73,7 @@ public class RequestManager {
             node.getGameInfo().getInfoHistory().add(packet.getInfo());
             // fix me the new object expenses;
             if (node.gameFrame.getState() == 0) {
-                new InfoStatusDialog(node.gameFrame, packet.getInfo());
+                node.gameFrame.addAndUpdate(new InfoStatusDialog(node, packet.getInfo()));
             }
         }
 

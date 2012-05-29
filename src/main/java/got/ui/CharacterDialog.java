@@ -25,7 +25,7 @@ public class CharacterDialog extends JDialog {
         super(node.gameFrame);
         this.node = node;
         this.familyName = familyName;
-        this.setSize(448, 200);
+        this.setSize(448, 400);
         createComponent();
         setupListeners();
         this.setUndecorated(true);
@@ -39,7 +39,7 @@ public class CharacterDialog extends JDialog {
         for (String characterName : familyInfo.getCharacterMap().keySet()) {
             CharacterInfo ci = node.getGameInfo().getCharacterMap().get(characterName);
             CharacterButton btn = new CharacterButton(characterName);
-            btn.setText(String.format("%s Power:%d Sword:%d Shield:%d %s",characterName,ci.getPower(),ci.getSword(),ci.getShield(),ci.getSpecial()));
+            btn.setText(String.format("<html>%s Power:%d Sword:%d Shield:%d <br>%s</html>",characterName,ci.getPower(),ci.getSword(),ci.getShield(),ci.getSpecial()));
             btns.add(btn);
             this.add(btn);
             if (node.getGameInfo().getState().equals(GameState.Start_General)) {

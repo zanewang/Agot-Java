@@ -294,6 +294,7 @@ public class TerritoryInfo implements Serializable {
         if (attackWin) {
             this.setAction(Action.NONE);
             this.setConquerFamilyName(this.getAttackFamilyName());
+            this.restConquerArms();
             for (Arm arm : attackArms.keySet()) {
                 conquerArms.put(arm, attackArms.get(arm));
             }
@@ -317,6 +318,18 @@ public class TerritoryInfo implements Serializable {
         }
     }
 
+    public void restRetreatArms(){
+        for (Arm arm : retreatArms.keySet()) {
+            retreatArms.put(arm, 0);
+        }
+    }
+    
+    public void restConquerArms(){
+        for (Arm arm : conquerArms.keySet()) {
+            conquerArms.put(arm, 0);
+        }
+    }
+    
     public void resetAttackArms() {
         for (Arm arm : attackArms.keySet()) {
             attackArms.put(arm, 0);

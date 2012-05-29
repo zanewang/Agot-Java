@@ -123,4 +123,20 @@
 	<Connection t1="Ironman's Bay" t2="Riverrun"/>
 	<Connection t1="Ironman's Bay" t2="Sunset Sea"/>
 	<Connection t1="Ironman's Bay" t2="Pyke"/>
+	<Connection t1="SunsPearPort" t2="Sunspear"/>
+	<Connection t1="SunsPearPort" t2="East Summer Sea"/>
+	<Connection t1="LannisPortPort" t2="Lannisport"/>
+	<Connection t1="LannisPortPort" t2="The Golden Sound"/>
+	<Connection t1="WinterFellPort" t2="Winter Fell"/>
+	<Connection t1="WinterFellPort" t2="Bay of Ice"/>
+	<Connection t1="OldTownPort" t2="Oldtown"/>
+	<Connection t1="OldTownPort" t2="Redwyne Straights"/>
+	<Connection t1="PykePort" t2="Pyke"/>
+	<Connection t1="PykePort" t2="Ironman's Bay"/>
+	<Connection t1="DragonStonePort" t2="Dragonstone"/>
+	<Connection t1="DragonStonePort" t2="Shipbreaker Bay"/>
+	<Connection t1="WhiteHarborPort" t2="White Harbor"/>
+	<Connection t1="WhiteHarborPort" t2="The Narrow Sea"/>
+	<Connection t1="StormsEndPort" t2="Storms End"/>
+	<Connection t1="StormsEndPort" t2="Shipbreaker Bay"/>
 </Connections>

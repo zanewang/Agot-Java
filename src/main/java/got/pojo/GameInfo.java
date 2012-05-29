@@ -364,7 +364,8 @@ public class GameInfo {
     }
 
     public void readSupplyPlacementTxt() throws FileNotFoundException, IOException {
-        setSupplyPoints(PointFileReaderWriter.readOneToMany(getClass().getResourceAsStream("/got/resource/txt/supply_place.txt")));
+        setSupplyPoints(PointFileReaderWriter.readOneToMany(getClass().getResourceAsStream(
+                "/got/resource/txt/supply_place.txt")));
     }
 
     public void readConnectionsXML() throws ParserConfigurationException, SAXException, IOException {
@@ -572,8 +573,10 @@ public class GameInfo {
 
     private void dfsSea(List<String> seas, List<String> connSeas, String familyName) {
         for (String sea : seas) {
-            connSeas.add(sea);
-            dfsSea(getNearbyTerritory(sea, TerritoryType.SEA, familyName), connSeas, familyName);
+            if (!connSeas.contains(sea)) {
+                connSeas.add(sea);
+                dfsSea(getNearbyTerritory(sea, TerritoryType.SEA, familyName), connSeas, familyName);
+            }
         }
     }
 

@@ -85,6 +85,10 @@ public class MusteringDialog extends JDialog {
                     flag = true;
                     break;
                 }
+                for(String port : node.getGameInfo().getNearbyTerritory(ti.getName(), TerritoryType.PORT)){
+                    flag = true;
+                    break;
+                }
                 if (!flag) {
                     musterButton.setEnabled(false);
                 }

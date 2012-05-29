@@ -5,6 +5,7 @@ import got.io.MessageType;
 import got.logic.GameState;
 import got.pojo.Action;
 import got.pojo.ActionType;
+import got.pojo.TerritoryType;
 import got.pojo.event.FamilyInfo;
 import got.pojo.event.GameInfoHelper;
 import got.pojo.event.TerritoryInfo;
@@ -47,7 +48,7 @@ public class OrderDialog extends JDialog {
         // TODO Auto-generated method stub
         btnMap = new HashMap<Action, OrderButton>();
         for (Action order : Action.values()) {
-            btnMap.put(order, new OrderButton(order,node));
+            btnMap.put(order, new OrderButton(order, node));
         }
     }
 
@@ -94,6 +95,14 @@ public class OrderDialog extends JDialog {
                     }
                 }
 
+            }
+            if (ti.getType().equals(TerritoryType.SEA)) {
+                for (Action action : btnMap.keySet()) {
+                    if (action.getType().equals(ActionType.CONSOLIDATE)) {
+                        OrderButton btn = btnMap.get(action);
+                        btn.setEnabled(false);
+                    }
+                }
             }
         }
 

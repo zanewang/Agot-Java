@@ -227,12 +227,12 @@ public class DrawManager {
             }
         }
         
-        placed = 0;
+        placed = ti.getConquerArmNum();
         for (Arm arm : ti.getRetreatArms().keySet()) {
             int num = ti.getRetreatArms().get(arm);
             for (int i = 0; i < num; i++) {
                 Point p = ti.getArmPs().get(placed++);
-                graphics.drawImage(node.getImageLoader().getArmyImages().get(ti.getConquerFamilyName()).get(arm),
+                graphics.drawImage(node.getImageLoader().getRetreatArmyImages().get(ti.getConquerFamilyName()).get(arm),
                         p.x + 5, p.y + 5, null);
             }
         }

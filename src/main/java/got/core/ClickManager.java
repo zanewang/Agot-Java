@@ -89,7 +89,7 @@ public class ClickManager {
         if (ti == null && !node.getMyFamilyInfo().getConquerTerritories().contains(ti.getName())) {
             return;
         }
-        new DisarmamentDialog(node,e.getLocationOnScreen(),ti);
+        new DisarmamentDialog(node, e.getLocationOnScreen(), ti);
     }
 
     private void CerseiSpecialTerritoryHandler(MouseEvent e) {
@@ -192,7 +192,10 @@ public class ClickManager {
                 node.getMyFamilyInfo().getName());
         List<String> neturalSeas = node.getGameInfo().getNearbyTerritory(musterTI.getName(), TerritoryType.SEA,
                 TerritoryInfo.NEUTRAL_FAMILY);
-        if (!mySeas.contains(ti.getName()) && !neturalSeas.contains(ti.getName())) {
+
+        List<String> ports = node.getGameInfo().getNearbyTerritory(musterTI.getName(), TerritoryType.PORT);
+        logger.debug(ports.size());
+        if (!mySeas.contains(ti.getName()) && !neturalSeas.contains(ti.getName()) && !ports.contains(ti.getName())) {
             return;
         }
 
