@@ -1,11 +1,14 @@
 package got.ui;
 
 import got.core.Node;
+import got.pojo.event.FamilyInfo;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowStateListener;
 import java.util.ArrayList;
@@ -71,6 +74,55 @@ public class MainFrame extends JFrame {
 
         });
 
+        final JMenu menu1 = new JMenu("Families");
+        menuBar.add(menu1);
+        menu1.addMouseListener(new MouseListener(){
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // TODO Auto-generated method stub
+                for (final FamilyInfo familyInfo : node.getGameInfo().getFamiliesMap().values()) {
+                    JMenuItem characterMenuItem = new JMenuItem(familyInfo.getName());
+                    menu1.add(characterMenuItem);
+                    characterMenuItem.addActionListener(new ActionListener() {
+
+                        @Override
+                        public void actionPerformed(ActionEvent arg0) {
+                            // TODO Auto-generated method stub
+                            new FamilyCharacterDialog(node,familyInfo.getName());
+                        }
+
+                    });
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+            
+        });
+       
+
         this.addWindowStateListener(new WindowStateListener() {
 
             @Override
@@ -83,7 +135,7 @@ public class MainFrame extends JFrame {
 
         this.setJMenuBar(menuBar);
         this.pack();
-        this.setVisible(true);
+//        this.setVisible(true);
     }
 
     public int getState() {

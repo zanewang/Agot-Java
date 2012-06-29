@@ -36,11 +36,12 @@ public class Main {
                 System.exit(0);
             }
         });
-        JScrollPane jscrollPane = new JScrollPane(new MainPanel(node));
-        jscrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        node.gameFrame.getContentPane().add(jscrollPane);
-        node.gameFrame.pack();
-        node.gameFrame.setVisible(true);
+//        JScrollPane jscrollPane = new JScrollPane(new MainPanel(node));
+//        jscrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+//        node.gameFrame.getContentPane().add(jscrollPane);
+//        node.gameFrame.pack();
+//        node.gameFrame.setVisible(true);
+       
     }
 
 }

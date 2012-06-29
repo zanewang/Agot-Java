@@ -146,15 +146,13 @@ public class ImageScrollerSmallView extends JComponent {
             final Rectangle bounds = (Rectangle) getBounds().clone();
             // if the mouse is a little off the screen, allow it to still scroll
             // the screen
-            bounds.grow(0, 0);
+            bounds.grow(30, 0);
             if (!bounds.contains(e.getPoint()))
                 return;
             // try to center around the click
             final int x = (int) (e.getX() / getRatioX()) - (m_model.getBoxWidth() / 2);
             final int y = (int) (e.getY() / getRatioY()) - (m_model.getBoxHeight() / 2);
-            if (x <= m_model.getMaxWidth()- m_model.getBoxWidth() && y <= m_model.getMaxHeight() - m_model.getBoxHeight()) {
-                setSelection(x, y);
-            }
+            setSelection(x, y);
         }
     };
     private final MouseAdapter MOUSE_LISTENER = new MouseAdapter() {
@@ -170,13 +168,11 @@ public class ImageScrollerSmallView extends JComponent {
 
     public double getRatioY() {
         double ratioY = m_image.getHeight(null) / (double) m_model.getMaxHeight();
-        System.out.println(ratioY);
         return ratioY;
     }
 
     public double getRatioX() {
         double ratioX = m_image.getWidth(null) / (double) m_model.getMaxWidth();
-        System.out.println(ratioX);
         return ratioX;
     }
 }

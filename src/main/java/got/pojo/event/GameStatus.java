@@ -1,6 +1,7 @@
 package got.pojo.event;
 
 import got.pojo.GameInfo;
+import got.server.ServerGameData;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class GameStatus implements Serializable {
     private Map<String, FamilyInfo> famliesMap;
 
     private String lastSelectTerrName;
-    
+
     private int wildAttackRate;
 
     public Map<String, TerritoryInfo> getTerrMap() {

@@ -1,13 +1,15 @@
 package got.pojo.event;
 
 import got.pojo.Action;
+import got.user.Account;
 
 import java.awt.Color;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.jgroups.Address;
@@ -18,7 +20,7 @@ public class FamilyInfo implements Serializable {
     private Color color;
     private int maxPower;
     private String name;
-    private String playerName;
+    private Account playerAcc;
 
     // dynamic configs
 
@@ -31,18 +33,18 @@ public class FamilyInfo implements Serializable {
     private int competePower;
     private Address address;
 
-    private List<String> conquerTerritories = new ArrayList<String>();
+    private Set<String> conquerTerritories = new HashSet<String>();
 
     private Map<Action, Boolean> actionMap = new HashMap<Action, Boolean>();
 
-    private Map<String, Boolean> characterMap = new HashMap<String, Boolean>();
+    private Map<String, Boolean> characterMap = new LinkedHashMap<String, Boolean>();
 
     private String battleCharacter;
 
     private int bladeRemain;
 
     private int raidRemain;
-    
+
     private int disarmRemain;
 
     public FamilyInfo() {
@@ -58,14 +60,6 @@ public class FamilyInfo implements Serializable {
         for (Action action : Action.values()) {
             getActionMap().put(action, true);
         }
-    }
-
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
     }
 
     public int getSupply() {
@@ -178,11 +172,11 @@ public class FamilyInfo implements Serializable {
         }
     }
 
-    public List<String> getConquerTerritories() {
+    public Set<String> getConquerTerritories() {
         return conquerTerritories;
     }
 
-    public void setConquerTerritories(List<String> conquerTerritories) {
+    public void setConquerTerritories(HashSet<String> conquerTerritories) {
         this.conquerTerritories = conquerTerritories;
     }
 
@@ -238,6 +232,14 @@ public class FamilyInfo implements Serializable {
 
     public int getDisarmRemain() {
         return disarmRemain;
+    }
+
+    public void setPlayerAcc(Account playerAcc) {
+        this.playerAcc = playerAcc;
+    }
+
+    public Account getPlayerAcc() {
+        return playerAcc;
     }
 
 }

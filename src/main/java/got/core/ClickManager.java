@@ -204,6 +204,8 @@ public class ClickManager {
         }
 
         ti.getConquerArms().put(Arm.SHIP, ti.getConquerArms().get(Arm.SHIP) + 1);
+        ti.setConquerFamilyName(node.getMyFamilyInfo().getName());
+        node.getMyFamilyInfo().getConquerTerritories().add(ti.getName());
         musterTI.setAvailMustering(musterTI.getAvailMustering() - 1);
 
         node.getGameInfo().shiftTO(GameState.Choose_Muster_Territory);

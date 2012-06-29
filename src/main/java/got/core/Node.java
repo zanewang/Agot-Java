@@ -6,6 +6,7 @@ import got.logic.RequestManager;
 import got.pojo.GameInfo;
 import got.pojo.event.FamilyInfo;
 import got.pojo.event.GameStatus;
+import got.ui.MainApplet;
 import got.ui.MainFrame;
 import got.ui.image.ImageLoader;
 
@@ -13,6 +14,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import javax.swing.JFrame;
 
 import org.jgroups.Address;
 import org.jgroups.JChannel;
@@ -25,13 +28,14 @@ public class Node {
 
     private GameInfo gameInfo;
 
-    private GameInfo serverGameInfo;
+//    private GameInfo serverGameInfo;
 
     private ImageLoader imageLoader;
 
     private RequestManager requestManager;
 
-    public MainFrame gameFrame;
+//    public JFrame gameFrame;
+    public MainApplet gameApplet;
 
     public BlockingQueue<GameEvent> gameEvents = new ArrayBlockingQueue<GameEvent>(20);
 
@@ -53,28 +57,27 @@ public class Node {
     public Node() {
         setImageLoader(new ImageLoader());
         getImageLoader().load();
-        this.gameFrame = new MainFrame(this);
+//        this.gameFrame = new MainFrame(this);
     }
 
-    public void init(String localAddr, String hostAddr) throws Exception {
-        boolean isHost;
-        if (hostAddr == null) {
-            properties = String.format(PROP_FORMAT, localAddr, localAddr);
-            isHost = true;
-        } else {
-            properties = String.format(PROP_FORMAT, localAddr, hostAddr);
-            isHost = false;
-        }
-        setChannel(new JChannel(properties));
-        getChannel().setReceiver(new Receiver());
-        getChannel().connect("AGOT");
-        serverGameInfo = new GameInfo();
-        serverGameInfo.setHost(isHost);
-        serverGameInfo.init();
+    public void init() throws Exception {
+//        boolean isHost;
+//        if (hostAddr == null) {
+//            properties = String.format(PROP_FORMAT, localAddr, localAddr);
+//            isHost = true;
+//        } else {
+//            properties = String.format(PROP_FORMAT, localAddr, hostAddr);
+//            isHost = false;
+//        }
+//        setChannel(new JChannel(properties));
+//        getChannel().setReceiver(new Receiver());
+//        getChannel().connect("AGOT");
+//        serverGameInfo = new GameInfo();
+//        serverGameInfo.setHost(isHost);
+//        serverGameInfo.init();
         gameInfo = new GameInfo();
-        gameInfo.setHost(isHost);
         gameInfo.init();
-        requestManager = new RequestManager(this);
+//        requestManager = new RequestManager(this);
     }
 
     public JChannel getChannel() {
@@ -93,13 +96,13 @@ public class Node {
         this.gameInfo = gameInfo;
     }
 
-    public GameInfo getServerGameInfo() {
-        return serverGameInfo;
-    }
-
-    public void setServerGameInfo(GameInfo serverGameInfo) {
-        this.serverGameInfo = serverGameInfo;
-    }
+//    public GameInfo getServerGameInfo() {
+//        return serverGameInfo;
+//    }
+//
+//    public void setServerGameInfo(GameInfo serverGameInfo) {
+//        this.serverGameInfo = serverGameInfo;
+//    }
 
     public ImageLoader getImageLoader() {
         return imageLoader;
@@ -169,8 +172,8 @@ public class Node {
         message.setObject(packet);
         channel.send(message);
     }
-    
-    public void sendInfo(String info,Address address) throws Exception {
+
+    public void sendInfo(String info, Address address) throws Exception {
         Packet packet = new Packet();
         packet.setType(MessageType.Info);
         packet.setInfo(info);

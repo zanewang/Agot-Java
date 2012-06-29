@@ -32,7 +32,7 @@ public class InfoStatusDialog extends JDialog {
 
         Timer timer = new Timer(10000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                node.gameFrame.removeAndUpdate(InfoStatusDialog.this);
+//                node.gameFrame.removeAndUpdate(InfoStatusDialog.this);
                 InfoStatusDialog.this.dispose();
             }
         });

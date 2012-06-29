@@ -26,18 +26,17 @@ public class MainPanel extends JPanel {
     private int height = 1768;
 
     private Image backgroundImage = Utility.loadImage("got/resource/agot.png");
-    private final Node node;
 
+    private final Node node;
     private ClickManager clickManager;
     private DrawManager drawManager;
 
-    public MainPanel(Node node) {
-        this.node = node;
+    public MainPanel() {
         this.screen = Utility.createImage(width, height, true);
         this.setPreferredSize(new Dimension(width, height));
         this.graphics = (Graphics2D) screen.getGraphics();
 
-        this.owner = node.gameFrame;
+        node = new Node();
         this.clickManager = new ClickManager(node);
         this.drawManager = new DrawManager(graphics, node);
 

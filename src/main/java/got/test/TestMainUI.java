@@ -1,5 +1,6 @@
 package got.test;
 
+import got.ui.FamilyCharacterDialog;
 import got.ui.InfoStatusDialog;
 import got.utility.Utility;
 
@@ -101,8 +102,9 @@ public class TestMainUI extends JFrame {
 
         // JScrollPane jscrollPane = new JScrollPane(new MainPanel());
         // jscrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        frame.add(frame.new MainPanel(frame));
+//        frame.add(frame.new MainPanel(frame));
 //        frame.pack();
+//        new FamilyCharacterDialog(frame);
         frame.setVisible(true);
 
     }
@@ -136,7 +138,7 @@ public class TestMainUI extends JFrame {
 //                            System.out.println("2 " + MainPanel.this.fram.getX());
 //                            System.out.println("2 " + MainPanel.this.fram.getY());
                             if(MainPanel.this.fram.state == 0){
-                            new InfoStatusDialog(TestMainUI.this, String.valueOf(random.nextLong()));
+//                            new InfoStatusDialog(TestMainUI.this, String.valueOf(random.nextLong()));
                             }
                         }
 
